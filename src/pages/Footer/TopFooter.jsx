@@ -19,10 +19,10 @@ const TopFooter = () => {
                     <p className='flex gap-2 font-bold items-center'><FaRegEnvelope /><span>info@geographyolympiadbd.com </span></p>
                     <div className='flex gap-3 items-center justify-center w-full mx-auto my-5'>
                          <FaFacebookF title='Facebook' className='text-4xl border p-1 border-black rounded-full' />
-                         <FaLinkedinIn title='LinkedIn'  className='text-3xl border p-1 border-black rounded-full' />
+                         <FaInstagram title='Instagram' className='text-3xl border p-1 border-black rounded-full' />
                          <FaTwitter title='Twitter' className='text-2xl border p-1 border-black rounded-full' />
                          <FaYoutube title='You Tube' className='text-3xl border p-1 border-black rounded-full' />
-                         <FaInstagram title='Instagram' className='text-4xl border p-1 border-black rounded-full' />
+                         <FaLinkedinIn title='LinkedIn' className='text-4xl border p-1 border-black rounded-full' />
                     </div>
                 </nav> 
                 <nav>
