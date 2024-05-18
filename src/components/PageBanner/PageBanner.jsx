@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const PageBanner = ({pageBannerInfo}) => {
     const {bgImg,optioanTextColor,optioanText,headingColor,beforeText,specialColorText,specialColorTextColor,afterText } = pageBannerInfo;
     return (
-        <div className={`my-5 bg-[url('${bgImg}')] bg-cover bg-no-repeat bg-center border`}>
+        <div className={`my-5 ${bgImg} bg-cover bg-no-repeat bg-center border`}>
            <div className="flex items-center justify-center flex-col gap-3 py-16 bg-white bg-opacity-50">
                 <img className="h-32 w-32" src={logo} alt="" />
                 <p className={`font-bold ${optioanTextColor}`}>{optioanText}</p>

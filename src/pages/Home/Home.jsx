@@ -4,7 +4,7 @@ import PageBanner from "../../components/PageBanner/PageBanner";
 
 const Home = () => {
     const bannerInfo = {
-        bgImg: "./assets/images/pageBanner/banner1.jpg",
+        bgImg: `bg-[url('./assets/images/pageBanner/banner1.jpg')]`,
         optioanTextColor:"text-yellow-500",
         headingColor:"text-[#6f2f9f]",
         specialColorTextColor:" ",
