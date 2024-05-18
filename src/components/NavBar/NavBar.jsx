@@ -20,7 +20,6 @@ const NavBar = () => {
             setFixed(false);
         }
     })
-    console.log(fixed)
     return (
         <div className={`navbar bg-gray-300 border-b shadow-sm ${fixed && 'fixed top-0 max-w-screen-xl mx-auto z-10'}`}>
             <div className="navbar-start">

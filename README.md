@@ -4,6 +4,7 @@
 *Use Of NPM Package*
 
 * React Helmet
+* prop-types
 
 
 
