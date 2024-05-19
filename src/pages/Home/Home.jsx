@@ -1,10 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import PageBanner from "../../components/PageBanner/PageBanner";
+import home_banner from "../../assets/images/pageBanner/home_banner.jpg";
+import AboutInfoHome from "./AboutInfoHome/AboutInfoHome";
 
 
 const Home = () => {
     const bannerInfo = {
-        bgImg: `bg-[url('./assets/images/pageBanner/banner1.jpg')]`,
+        bgImg: home_banner,
         optioanTextColor:"text-yellow-500",
         headingColor:"text-[#6f2f9f]",
         specialColorTextColor:" ",
@@ -19,6 +21,9 @@ const Home = () => {
                 <title>Home - Geography Olympiad BD</title>
            </Helmet>
            <PageBanner pageBannerInfo={bannerInfo}></PageBanner>
+           <div className="bg-[#f5f5f5] border-t-4 border-b-4 border-[#83c9eb] my-5 py-5">
+                <AboutInfoHome></AboutInfoHome>
+           </div>
         </div>
     );
 };

@@ -5,6 +5,7 @@
 
 * React Helmet
 * prop-types
+* react-parallax
 
 
 
