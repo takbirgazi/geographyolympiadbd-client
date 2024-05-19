@@ -14,11 +14,11 @@ const AboutInfoHome = () => {
                     <p className="text-sm my-5 font-semibold pr-5">Updated: 15 May 2024</p>
                     <div className="border-t border-b py-4">
                         <div className="flex gap-2 items-center justify-center">
-                            <FaFacebookF title='Facebook' className='text-4xl border p-1 border-black rounded-full' />
-                            <FaInstagram title='Instagram' className='text-4xl border p-1 border-black rounded-full' />
-                            <FaTwitter title='Twitter' className='text-4xl border p-1 border-black rounded-full' />
-                            <FaYoutube title='You Tube' className='text-4xl border p-1 border-black rounded-full' />
-                            <FaLinkedinIn title='LinkedIn' className='text-4xl border p-1 border-black rounded-full' />
+                            <FaFacebookF title='Facebook' className='text-4xl border p-1 border-black rounded-full cursor-pointer' />
+                            <FaInstagram title='Instagram' className='text-4xl border p-1 border-black rounded-full cursor-pointer' />
+                            <FaTwitter title='Twitter' className='text-4xl border p-1 border-black rounded-full cursor-pointer' />
+                            <FaYoutube title='You Tube' className='text-4xl border p-1 border-black rounded-full cursor-pointer' />
+                            <FaLinkedinIn title='LinkedIn' className='text-4xl border p-1 border-black rounded-full cursor-pointer' />
                         </div>
                     </div>
                 </div>

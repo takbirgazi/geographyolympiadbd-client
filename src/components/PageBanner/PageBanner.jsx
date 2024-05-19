@@ -10,7 +10,7 @@ const PageBanner = ({pageBannerInfo}) => {
         bgImage={bgImg}
         bgImageAlt="Background"
         strength={-200}
-        className="my-5 flex items-center justify-center size-fit w-full"
+        className="flex items-center justify-center size-fit w-full"
     >
         <div className="flex items-center justify-center flex-col gap-3 py-16 my-10 w-full">
             <img className="h-32 w-32" src={logo} alt="Logo" />
