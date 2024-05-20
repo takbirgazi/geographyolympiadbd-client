@@ -7,8 +7,9 @@ import BgoEvents from './../pages/BgoEvents/BgoEvents';
 import Resource from './../pages/Resource/Resource';
 import Blog from './../pages/Blog/Blog';
 import Gallery from './../pages/Gallery/Gallery';
-import Registration from './../pages/Registration/Registration';
 import Contact from './../pages/Contact/Contact';
+import SignUp from "../pages/SignUp/SignUp";
+import LogIn from "../pages/LogIn/LogIn";
 
 const router = createBrowserRouter([
     {
@@ -41,8 +42,12 @@ const router = createBrowserRouter([
                 element: <Blog></Blog>
             },
             {
-                path: '/registration',
-                element: <Registration></Registration>
+                path: '/signUp',
+                element: <SignUp></SignUp>
+            },
+            {
+                path: '/logIn',
+                element: <LogIn></LogIn>
             },
             {
                 path: '/contact',
