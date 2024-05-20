@@ -4,7 +4,7 @@ import manjurul  from "../../../assets/images/home/manzurul.jpg";
 const AboutInfoHome = () => {
     return (
         <div className="border-b-4 border-[#83c9eb] pb-5">
-           <div className="flex lg:flex-row lg:gap-2 gap-5 flex-col px-2">
+           <div className="flex lg:flex-row lg:gap-2 gap-5 flex-col w-11/12 mx-auto">
                 <div className="lg:w-1/4 w-full">
                     <div className="flex gap-3 items-center">
                         <span className="w-20 bg-red-500 h-4"> </span>

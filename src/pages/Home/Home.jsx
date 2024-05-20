@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 import PageBanner from "../../components/PageBanner/PageBanner";
 import home_banner from "../../assets/images/pageBanner/home_banner.jpg";
 import AboutInfoHome from "./AboutInfoHome/AboutInfoHome";
-import Category from "./Category/Category";
+import Category from "./CategoryHome/CategoryHome";
 
 
 const Home = () => {

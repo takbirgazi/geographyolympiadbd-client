@@ -7,7 +7,7 @@ import button4 from "../../../assets/images/home/button4.jpg";
 import button5 from "../../../assets/images/home/button5.jpg";
 import button6 from "../../../assets/images/home/button6.jpg";
 
-const Category = () => {
+const CategoryHome = () => {
     const catInfo =[
         {
             _id: 1,
@@ -55,4 +55,4 @@ const Category = () => {
     );
 };
 
-export default Category;
+export default CategoryHome;
