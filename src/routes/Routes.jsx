@@ -10,13 +10,15 @@ import Gallery from './../pages/Gallery/Gallery';
 import Contact from './../pages/Contact/Contact';
 import SignUp from "../pages/SignUp/SignUp";
 import LogIn from "../pages/LogIn/LogIn";
+import Registration from "../pages/Registration/Registration";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
         errorElement: <ErrorPage></ErrorPage>,
-        children:[
+        children: [
             {
                 path: '/',
                 element: <Home></Home>
@@ -52,6 +54,10 @@ const router = createBrowserRouter([
             {
                 path: '/contact',
                 element: <Contact></Contact>
+            },
+            {
+                path: '/registration',
+                element: <PrivateRoute><Registration></Registration></PrivateRoute>
             }
         ]
     }

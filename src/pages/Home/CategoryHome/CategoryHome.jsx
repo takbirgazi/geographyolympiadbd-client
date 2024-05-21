@@ -8,14 +8,14 @@ import button5 from "../../../assets/images/home/button5.jpg";
 import button6 from "../../../assets/images/home/button6.jpg";
 
 const CategoryHome = () => {
-    const catInfo =[
+    const catInfo = [
         {
             _id: 1,
             catImg: button1,
             catTittle: "About BGO",
             catDesc: "A brief information about Bangladesh Geography Olympiad with Committee and Constitution...",
         },
-        {   
+        {
             _id: 2,
             catImg: button2,
             catTittle: "BGO Events",
@@ -33,7 +33,7 @@ const CategoryHome = () => {
             catTittle: "Gallery",
             catDesc: "Still Photographs, Audio, and Video, for historical snapshots of Geography Olympiad...",
         },
-        {   
+        {
             _id: 5,
             catImg: button5,
             catTittle: "Blog",

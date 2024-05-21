@@ -8,26 +8,26 @@ import Category from "./CategoryHome/CategoryHome";
 const Home = () => {
     const bannerInfo = {
         bgImg: home_banner,
-        optioanTextColor:"text-yellow-500",
-        headingColor:"text-[#6f2f9f]",
-        specialColorTextColor:" ",
-        optioanText:"WELCOME TO",
-        beforeText:"The Information Hub of Bangladesh",
-        specialColorText:" ",
-        afterText:"Geography Olympiad",
+        optioanTextColor: "text-yellow-500",
+        headingColor: "text-[#6f2f9f]",
+        specialColorTextColor: " ",
+        optioanText: "WELCOME TO",
+        beforeText: "The Information Hub of Bangladesh",
+        specialColorText: " ",
+        afterText: "Geography Olympiad",
     }
     return (
         <div>
-           <Helmet>
+            <Helmet>
                 <title>Home - Geography Olympiad BD</title>
-           </Helmet>
-           <PageBanner pageBannerInfo={bannerInfo}></PageBanner>
-           <div className="bg-[#f5f5f5] border-t-4 border-b-4 border-[#83c9eb] mt-5 py-5">
+            </Helmet>
+            <PageBanner pageBannerInfo={bannerInfo}></PageBanner>
+            <div className="bg-[#f5f5f5] border-t-4 border-b-4 border-[#83c9eb] mt-5 py-5">
                 <AboutInfoHome></AboutInfoHome>
                 <div className="lg:w-1/2 w-11/12 mx-auto pt-5">
                     <Category></Category>
                 </div>
-           </div>
+            </div>
         </div>
     );
 };
