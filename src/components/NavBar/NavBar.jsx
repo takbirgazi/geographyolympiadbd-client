@@ -12,9 +12,9 @@ const NavBar = () => {
             <details>
                 <summary>Scanning BGO</summary>
                 <ul className="p-2 flex flex-col gap-1">
-                    <li><NavLink to="/scanningbgo">About BGO</NavLink></li>
-                    <li><NavLink to="/committee">BGO Committee</NavLink></li>
-                    <li><NavLink to="/constitution">BGO Constitution</NavLink></li>
+                    <li><NavLink to="/scanningbgo">About</NavLink></li>
+                    <li><NavLink to="/committee">Committee</NavLink></li>
+                    <li><NavLink to="/constitution">Constitution</NavLink></li>
                 </ul>
             </details>
         </li>
