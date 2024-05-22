@@ -5,7 +5,7 @@ import TopNavBar from "./../components/NavBar/TopNavBar";
 
 const Root = () => {
     return (
-        <div className="max-w-screen-xl mx-auto">
+        <div className="max-w-screen-xl mx-auto bg-white">
             <TopNavBar></TopNavBar>
             <NavBar></NavBar>
             <div>

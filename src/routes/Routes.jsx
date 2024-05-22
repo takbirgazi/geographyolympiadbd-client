@@ -12,6 +12,8 @@ import SignUp from "../pages/SignUp/SignUp";
 import LogIn from "../pages/LogIn/LogIn";
 import Registration from "../pages/Registration/Registration";
 import PrivateRoute from "./PrivateRoute";
+import BgoCommittee from "../pages/BgoCommittee/BgoCommittee";
+import BgoConstitution from "../pages/BgoConstitution/BgoConstitution";
 
 const router = createBrowserRouter([
     {
@@ -24,39 +26,47 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/scanningbgo',
+                path: 'scanningbgo',
                 element: <ScanningBgo></ScanningBgo>
             },
             {
-                path: '/bgoevents',
+                path: "committee",
+                element: <BgoCommittee></BgoCommittee>
+            },
+            {
+                path: 'constitution',
+                element: <BgoConstitution></BgoConstitution>
+            },
+            {
+                path: 'bgoevents',
                 element: <BgoEvents></BgoEvents>
             },
             {
-                path: '/resource',
+                path: 'resource',
                 element: <Resource></Resource>
             },
             {
-                path: '/gallery',
+                path: 'gallery',
                 element: <Gallery></Gallery>
             },
             {
-                path: '/blog',
+                path: 'blog',
                 element: <Blog></Blog>
             },
             {
-                path: '/signUp',
+                path: 'signUp',
                 element: <SignUp></SignUp>
             },
             {
-                path: '/logIn',
+                path: 'logIn',
                 element: <LogIn></LogIn>
             },
             {
-                path: '/contact',
+                path: 'contact',
                 element: <Contact></Contact>
             },
             {
-                path: '/registration',
+                path: 'registration',
                 element: <PrivateRoute><Registration></Registration></PrivateRoute>
             }
         ]

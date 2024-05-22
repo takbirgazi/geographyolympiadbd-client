@@ -11,19 +11,19 @@ const CategoryScanning = () => {
             _id: 1,
             catImg: button1,
             catTittle: "About BGO",
-            catDesc: "A brief information about Bangladesh Geography Olympiad with Committee and Constitution...",
+            catDesc: "A brief information about Bangladesh Geography Olympiad with Objective, Vision, and Mission . . .",
         },
         {   
             _id: 2,
             catImg: button2,
-            catTittle: "BGO Events",
-            catDesc: "Information about Olympiad Events in Bangladesh with different levels of education...",
+            catTittle: "BGO Committee",
+            catDesc: "Information regarding the existing Executive Members of BGO with their short biography...",
         },
         {
             _id: 3,
             catImg: button3,
-            catTittle: "Resources",
-            catDesc: "Contains relevant resources in terms of question papers, reading materials, and many more...",
+            catTittle: "Constitution",
+            catDesc: "Contains the Rules and Regulations about a number of phenomena to run BGO smoothly...",
         }
     ]
 

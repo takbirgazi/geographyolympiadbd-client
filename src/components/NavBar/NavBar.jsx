@@ -4,11 +4,21 @@ import { AuthContext } from "../../provider/AuthProvider";
 
 const NavBar = () => {
     const [fixed, setFixed] = useState(false);
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     console.log(user);
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/scanningbgo">Scanning BGO</NavLink></li>
+        <li className="z-20">
+            <details>
+                <summary>Scanning BGO</summary>
+                <ul className="p-2 flex flex-col gap-1">
+                    <li><NavLink to="/scanningbgo">About BGO</NavLink></li>
+                    <li><NavLink to="/committee">BGO Committee</NavLink></li>
+                    <li><NavLink to="/constitution">BGO Constitution</NavLink></li>
+                </ul>
+            </details>
+        </li>
+
         <li><NavLink to="/bgoevents">BGO Events</NavLink></li>
         <li><NavLink to="/resource">Resource</NavLink></li>
         <li><NavLink to="/gallery">Gallery</NavLink></li>
@@ -38,7 +48,7 @@ const NavBar = () => {
                 <NavLink className="btn btn-ghost text-xl">Geography Olympiad BD</NavLink>
             </div>
             <div className="navbar hidden lg:flex justify-end">
-                <ul className="menu menu-horizontal px-1 gap-2">
+                <ul className="menu menu-horizontal px-1">
                     {navLinks}
                 </ul>
             </div>
