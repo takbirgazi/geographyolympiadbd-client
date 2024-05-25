@@ -4,7 +4,6 @@ import Home from "../pages/Home/Home";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ScanningBgo from './../pages/ScanningBgo/ScanningBgo';
 import BgoEvents from './../pages/BgoEvents/BgoEvents';
-import Resource from './../pages/Resource/Resource';
 import Blog from './../pages/Blog/Blog';
 import Gallery from './../pages/Gallery/Gallery';
 import Contact from './../pages/Contact/Contact';
@@ -14,6 +13,9 @@ import Registration from "../pages/Registration/Registration";
 import PrivateRoute from "./PrivateRoute";
 import BgoCommittee from "../pages/BgoCommittee/BgoCommittee";
 import BgoConstitution from "../pages/BgoConstitution/BgoConstitution";
+import ReadingZones from './../pages/ReadingZones/ReadingZones';
+import PreviousQuestionPapers from './../pages/PreviousQuestionPapers/PreviousQuestionPapers';
+import GeoEventContents from './../pages/GeoEventContents/GeoEventContents';
 
 const router = createBrowserRouter([
     {
@@ -42,8 +44,16 @@ const router = createBrowserRouter([
                 element: <BgoEvents></BgoEvents>
             },
             {
-                path: 'resource',
-                element: <Resource></Resource>
+                path: 'reading',
+                element: <ReadingZones></ReadingZones>
+            },
+            {
+                path: 'question',
+                element: <PreviousQuestionPapers></PreviousQuestionPapers>
+            },
+            {
+                path: 'contents',
+                element: <GeoEventContents></GeoEventContents>
             },
             {
                 path: 'gallery',
