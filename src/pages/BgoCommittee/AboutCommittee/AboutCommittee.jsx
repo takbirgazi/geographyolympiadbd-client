@@ -10,6 +10,7 @@ import image6 from "../../../assets/images/bgoCommittee/image6.png";
 import patnor1 from "../../../assets/images/bgoCommittee/patnor1.png";
 import patnor2 from "../../../assets/images/bgoCommittee/patnor2.png";
 import patnor3 from "../../../assets/images/bgoCommittee/patnor3.png";
+import PageLeftSidebar from "../../../components/PageLeftSidebar/PageLeftSidebar";
 
 
 const AboutCommittee = () => {
@@ -68,15 +69,7 @@ const AboutCommittee = () => {
 return (
     <div className="border-b-4 border-[#83c9eb] pb-5">
         <div className="flex lg:flex-row lg:gap-10 gap-5 flex-col w-11/12 mx-auto pt-10">
-            <div className="lg:w-1/3 w-full">
-                <div className="flex gap-3 items-center">
-                    <span className="w-20 bg-red-500 h-4"> </span>
-                    <p className="font-bold tracking-widest"> BGO COMMITTEE </p>
-                </div>
-                <div className="border mt-10">
-                    <img className="w-full" src={committeeLeft} alt="Sidebar Image" />
-                </div>
-            </div>
+            <PageLeftSidebar tittle="BGO COMMITTEE" image={committeeLeft}></PageLeftSidebar>
             <div className="lg:w-2/3 w-full">
                 <div className="pb-8">
                     <h2 className="lg:text-3xl md:text-2xl text-xl font-bold">Committee Members of Bangladesh Geography Olympiad</h2>

@@ -3,6 +3,7 @@ import objective from "../../../assets/images/scanningBgo/objective.png";
 import vision from "../../../assets/images/scanningBgo/vision.png";
 import mission from "../../../assets/images/scanningBgo/mission.png";
 import { Fade } from "react-awesome-reveal";
+import PageLeftSidebar from "../../../components/PageLeftSidebar/PageLeftSidebar";
 
 const AboutInfoScanning = () => {
     const target = [
@@ -28,15 +29,7 @@ const AboutInfoScanning = () => {
     return (
         <div className="border-b-4 border-[#83c9eb] pb-5">
             <div className="flex lg:flex-row lg:gap-10 gap-5 flex-col w-11/12 mx-auto pt-10">
-                <div className="lg:w-1/3 w-full">
-                    <div className="flex gap-3 items-center">
-                        <span className="w-20 bg-red-500 h-4"> </span>
-                        <p className="font-bold tracking-widest"> ABOUT BGO </p>
-                    </div>
-                    <div className="border mt-10">
-                        <img className="w-full" src={scanningSideImg} alt="Sidebar Image" />
-                    </div>
-                </div>
+                <PageLeftSidebar tittle="ABOUT BGO" image={scanningSideImg}></PageLeftSidebar>
                 <div className="lg:w-2/3 w-full">
                     <div className="pb-8 border-b-2 border-blue-300 border-dotted">
                         <h2 className="lg:text-3xl md:text-2xl text-xl font-bold">About Bangladesh Geography Olympiad</h2>
