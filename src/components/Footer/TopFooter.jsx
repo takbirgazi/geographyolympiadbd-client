@@ -30,7 +30,7 @@ const TopFooter = () => {
                     <h6 className="footer-title">Main Links</h6> 
                     <NavLink className="link link-hover" to="/scanningbgo">Scanning BGO</NavLink>
                     <NavLink className="link link-hover" to="/bgoevents">BGO Events</NavLink>
-                    <NavLink className="link link-hover" to="/resource">Resource</NavLink>
+                    <NavLink className="link link-hover" to="/reading">Resource</NavLink>
                     <NavLink className="link link-hover" to="/gallery">Gallery</NavLink>
                     <NavLink className="link link-hover" to="/blog">Blog</NavLink>
                     <NavLink className="link link-hover" to="/registration">Registration</NavLink>
