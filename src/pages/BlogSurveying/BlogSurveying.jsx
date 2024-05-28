@@ -21,8 +21,8 @@ const BlogSurveying = () => {
 
     return (
         <div>
-            <Helmet>
-                <title>Blog:Previous Survey Results - Geography Olympiad BD</title>
+           <Helmet>
+                <title>Blog: Surveying - Geography Olympiad BD</title>
            </Helmet>
            <PageBanner pageBannerInfo={bannerInfo}></PageBanner>
             <div className="bg-[#f5f5f5] border-t-4 border-b-4 border-[#83c9eb] mt-5 py-5">
