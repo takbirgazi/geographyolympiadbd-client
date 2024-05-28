@@ -29,8 +29,26 @@ const NavBar = () => {
                 </ul>
             </details>
         </li>
-        <li><NavLink to="/gallery">Gallery</NavLink></li>
-        <li><NavLink to="/blog">Blog</NavLink></li>
+        <li className="z-20">
+            <details>
+                <summary>Gallery</summary>
+                <ul className="p-2 flex flex-col gap-1 w-36">
+                    <li><NavLink to="/galleryPhoto">Gallery Photo</NavLink></li>
+                    <li><NavLink to="/galleryAudio">Gallery Audio</NavLink></li>
+                    <li><NavLink to="/galleryVideo">Gallery Video</NavLink></li>
+                </ul>
+            </details>
+        </li>
+        <li className="z-20">
+            <details>
+                <summary>Blog</summary>
+                <ul className="p-2 flex flex-col gap-1 w-40">
+                    <li><NavLink to="/factsFigures">Facts and Figures</NavLink></li>
+                    <li><NavLink to="/surveying">Surveying</NavLink></li>
+                    <li><NavLink to="/PrevSurvey">Previous Survey</NavLink></li>
+                </ul>
+            </details>
+        </li>
         <li><NavLink to="/signUp">Sign Up</NavLink></li>
         <li><NavLink to="/logIn">Log In</NavLink></li>
         <li><NavLink to="/contact">Contact</NavLink></li>
