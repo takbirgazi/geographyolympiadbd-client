@@ -4,7 +4,7 @@ import TopFooter from "./TopFooter";
 
 const Footer = () => {
     return (
-        <div>
+        <div className="text-black">
             <TopFooter></TopFooter>
             <BootomFooter></BootomFooter>
         </div>

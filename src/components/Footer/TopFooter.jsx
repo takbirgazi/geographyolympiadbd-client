@@ -11,9 +11,9 @@ const TopFooter = () => {
            <footer className="footer p-10 bg-[#dae9f7] text-base-content">
                 <aside>
                     <img src={logo} alt="Logo" className='h-14 w-14' />
-                    <h2 className='font-bold text-xl'>Geography Olympiad BD</h2>
+                    <h2 className='font-bold text-xl text-black'>Geography Olympiad BD</h2>
                 </aside> 
-                <nav>
+                <nav className='text-black'>
                     <h6 className="footer-title">Get In Touch</h6> 
                     <p className='flex gap-2 font-bold items-center'><IoLocationOutline /><span>Dhaka, Bangladesh</span></p>
                     <p className='flex gap-2 font-bold items-center'><MdOutlineCall /><span>+8801913171704 </span></p>
@@ -26,7 +26,7 @@ const TopFooter = () => {
                          <FaLinkedinIn title='LinkedIn' className='text-4xl border p-1 border-black rounded-full' />
                     </div>
                 </nav> 
-                <nav>
+                <nav className='text-black'>
                     <h6 className="footer-title">Main Links</h6> 
                     <NavLink className="link link-hover" to="/scanningbgo">Scanning BGO</NavLink>
                     <NavLink className="link link-hover" to="/bgoevents">BGO Events</NavLink>
