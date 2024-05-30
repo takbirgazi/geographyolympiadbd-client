@@ -11,6 +11,9 @@
 * react-parallax
 * material
 * react-awesome-reveal
+* react-hot-toast
+* react-simple-captcha
+* react-icons
 
 
 *Use Of Component Library*
