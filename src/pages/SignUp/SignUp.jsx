@@ -3,9 +3,9 @@ import { FaGoogle, FaCheck, FaEye, FaEyeSlash } from "react-icons/fa";
 import { NavLink, useNavigate } from "react-router-dom";
 import sidebar from "../../assets/signupImage.png"
 import { LoadCanvasTemplate, loadCaptchaEnginge, validateCaptcha } from "react-simple-captcha";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "react-hot-toast";
-import { AuthContext } from './../../provider/AuthProvider';
+import useAuth from "../../hooks/useAuth";
 
 const SignUp = () => {
 
@@ -14,7 +14,8 @@ const SignUp = () => {
     const [showPass, setShowPass] = useState(false);
     const [errorText, setErrorText] = useState('')
     const navigate = useNavigate();
-    const { createUser, updateUser, googleSign } = useContext(AuthContext)
+    const { createUser, updateUser, googleSign } = useAuth()
+    const from = location.state?.from.pathname || "/";
 
     useEffect(() => {
         loadCaptchaEnginge(6);
@@ -31,11 +32,12 @@ const SignUp = () => {
     }
     const googleHndler = () => {
         googleSign()
-            .then(res => {
-                console.log(res)
+            .then(() => {
+                toast.success("Log in Successful!");
+                navigate(from, { replace: true });
             })
-            .catch(err => {
-                console.log(err);
+            .catch(() => {
+                toast.error("Log in Failed");
             })
     }
     const signUpHandler = (event) => {
@@ -56,7 +58,7 @@ const SignUp = () => {
                         form.reset();
                         toast.success("Sign Up Successful!");
                         setTimeout(() => {
-                            navigate('/');
+                            navigate(from, { replace: true });
                             setDisable(false)
                         }, 1000);
                     })

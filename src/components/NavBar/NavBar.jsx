@@ -1,11 +1,19 @@
-import { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { AuthContext } from "../../provider/AuthProvider";
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+
 
 const NavBar = () => {
     const [fixed, setFixed] = useState(false);
-    const { user } = useContext(AuthContext);
-    console.log(user);
+    const { user, logOut } = useAuth();
+    const navigate = useNavigate();
+
+    const logOutHndler = () => {
+        logOut()
+            .then(() => {
+                navigate("/login");
+            })
+    }
     const navLinks = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li className="z-20">
@@ -49,9 +57,18 @@ const NavBar = () => {
                 </ul>
             </details>
         </li>
-        <li><NavLink to="/signUp">Sign Up</NavLink></li>
-        <li><NavLink to="/logIn">Log In</NavLink></li>
-        <li><NavLink to="/contact">Contact</NavLink></li>
+        {
+            user ? <>
+                <li><NavLink to="/registration">Registration</NavLink></li>
+                <li><button onClick={logOutHndler}>Log Out</button></li>
+            </> :
+                <>
+                    <li><NavLink to="/signUp">Sign Up</NavLink></li>
+                    <li><NavLink to="/logIn">Log In</NavLink></li>
+                    <li><NavLink to="/contact">Contact</NavLink></li>
+                </>
+
+        }
     </>
     window.addEventListener('scroll', () => {
         if (window.scrollY > 100) {
