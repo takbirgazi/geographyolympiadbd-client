@@ -14,6 +14,7 @@
 * react-hot-toast
 * react-simple-captcha
 * react-icons
+* react-loader-spinner
 
 
 *Use Of Component Library*
