@@ -68,7 +68,7 @@ const InfoText = () => {
                             <label className="label">
                                 <span className="label-text">Expected Level of Registration: </span>
                             </label>
-                            <select className="select select-bordered">
+                            <select className="select select-bordered text-[#9ca3af] bg-white">
                                 <option value="HSC">Higher Secondary Level (Grade/Class XI-XII)</option>
                                 <option value="SSC">Secondary Level (Grade/Class IX-X)</option>
                                 <option value="JSC">Junior Level (Class VI-VIII) </option>
