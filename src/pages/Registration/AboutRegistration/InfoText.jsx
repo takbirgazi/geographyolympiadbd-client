@@ -9,7 +9,10 @@ import "./InfoText.css"
 const InfoText = () => {
     const [errorText, setErrorText] = useState('');
     const [disable, setDisable] = useState(true);
-    const [startDate, setStartDate] = useState(new Date());
+    const [regDOb, setRegDOb] = useState(new Date());
+    const [passDob, setPassDob] = useState(new Date());
+    const [issuDate, setIssuDate] = useState(new Date());
+    const [expDate, setExpDate] = useState(new Date());
     const [checked, setChecked] = useState(true);
 
     return (
@@ -27,57 +30,61 @@ const InfoText = () => {
                             <label className="label">
                                 <span className="label-text">Full Name:</span>
                             </label>
-                            <input type="text" name="name" placeholder="Write YourName" className="input input-bordered" required />
+                            <input type="text" name="name" placeholder="Write Your Name" className="input input-bordered" required />
                         </div>
                         <div className="form-control md:col-span-1 col-span-2">
                             <label className="label">
                                 <span className="label-text">Date of Birth:</span>
                             </label>
                             <div className="input input-bordered flex items-center gap-2">
-                                <SlCalender className="font-semibold" /> <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+                                <SlCalender className="font-semibold text-xl" /> <DatePicker selected={regDOb} onChange={(date) => setRegDOb(date)} />
                             </div>
                         </div>
                         <div className="form-control md:col-span-1 col-span-2">
                             <label className="label">
                                 <span className="label-text">Mobile Number:</span>
                             </label>
-                            <input type="text" name="name" placeholder="01XXX-XXXXXX" className="input input-bordered" required />
+                            <input type="text" name="stdPhone" placeholder="01XXX-XXXXXX" className="input input-bordered" required />
                         </div>
                         <div className="form-control md:col-span-1 col-span-2">
                             <label className="label">
                                 <span className="label-text">Email Address: </span>
                             </label>
-                            <input type="email" name="email" placeholder="Write Email Address" className="input input-bordered" required />
+                            <input type="email" name="stdEmail" placeholder="Write Your Email Address" className="input input-bordered" required />
                         </div>
                         <div className="form-control md:col-span-1 col-span-2">
                             <label className="label">
                                 <span className="label-text">Present Address: </span>
                             </label>
-                            <textarea name="presentAddr" placeholder="Write Present Address" className="input input-bordered h-16 pt-4" required></textarea>
+                            <textarea name="presentAddr" placeholder="Write Your Present Address" className="input input-bordered h-16 pt-4" required></textarea>
                         </div>
                         <div className="form-control md:col-span-1 col-span-2">
                             <label className="label">
                                 <span className="label-text">Permanent Address: </span>
                             </label>
-                            <textarea name="permanentAdr" placeholder="Write Permanent Address" className="input input-bordered h-16 pt-4" required></textarea>
+                            <textarea name="permanentAdr" placeholder="Write Your Permanent Address" className="input input-bordered h-16 pt-4" required></textarea>
                         </div>
                         <div className="form-control col-span-2">
                             <label className="label">
                                 <span className="label-text">Expected Level of Registration: </span>
                             </label>
-                            <textarea name="permanentAdr" placeholder="Write Permanent Address" className="input input-bordered h-16 pt-4" required></textarea>
+                            <select className="select select-bordered">
+                                <option value="HSC">Higher Secondary Level (Grade/Class XI-XII)</option>
+                                <option value="SSC">Secondary Level (Grade/Class IX-X)</option>
+                                <option value="JSC">Junior Level (Class VI-VIII) </option>
+                            </select>
                         </div>
                         <div className="form-control md:col-span-1 col-span-2">
                             <label className="label">
                                 <span className="label-text">School/College Name: </span>
                             </label>
-                            <textarea name="permanentAdr" placeholder="Write Permanent Address" className="input input-bordered h-16 pt-4" required></textarea>
+                            <textarea name="sclClzName" placeholder="School/College Name" className="input input-bordered h-16 pt-4" required></textarea>
                         </div>
                         <div className="form-control md:col-span-1 col-span-2">
                             <label className="label">
                                 <span className="label-text">School/College Address: </span>
                             </label>
-                            <textarea name="permanentAdr" placeholder="Write Permanent Address" className="input input-bordered h-16 pt-4" required></textarea>
+                            <textarea name="sclClzAddr" placeholder="School/College Address" className="input input-bordered h-16 pt-4" required></textarea>
                         </div>
                         <div className="form-control col-span-2">
                             <label className="label">
@@ -98,36 +105,36 @@ const InfoText = () => {
                                         <label className="label">
                                             <span className="label-text">Name:</span>
                                         </label>
-                                        <input type="text" name="email" placeholder="Name" className="input input-bordered" required /></div>
+                                        <input type="text" name="techNAme" placeholder="Name" className="input input-bordered" required /></div>
                                     <div className="grid grid-cols-1">
                                         <label className="label">
                                             <span className="label-text">Designation:</span>
                                         </label>
-                                        <input type="text" name="email" placeholder="Designation" className="input input-bordered" required /></div>
+                                        <input type="text" name="techDeg" placeholder="Designation" className="input input-bordered" required /></div>
                                     <div className="grid grid-cols-1">
                                         <label className="label">
                                             <span className="label-text">School/College:</span>
                                         </label>
-                                        <input type="text" name="email" placeholder="School/College" className="input input-bordered" required /></div>
+                                        <input type="text" name="tecSclClz" placeholder="School/College" className="input input-bordered" required /></div>
                                 </div>
                                 <div className="grid md:grid-cols-3 grid-cols-1 gap-3 mt-3">
                                     <div className="grid grid-cols-1">
                                         <label className="label">
                                             <span className="label-text">Mobile Phone:</span>
                                         </label>
-                                        <input type="text" name="email" placeholder="Mobile Phone" className="input input-bordered" required />
+                                        <input type="text" name="techPhone" placeholder="Mobile Phone" className="input input-bordered" required />
                                     </div>
                                     <div className="grid grid-cols-1">
                                         <label className="label">
                                             <span className="label-text">Landline:</span>
                                         </label>
-                                        <input type="text" name="email" placeholder="Landline" className="input input-bordered" required />
+                                        <input type="text" name="techLand" placeholder="Landline" className="input input-bordered" required />
                                     </div>
                                     <div className="grid grid-cols-1">
                                         <label className="label">
                                             <span className="label-text">Email address:</span>
                                         </label>
-                                        <input type="email" name="email" placeholder="Email address" className="input input-bordered" required />
+                                        <input type="email" name="techEmail" placeholder="Email address" className="input input-bordered" required />
                                     </div>
                                 </div>
                             </div>
@@ -142,14 +149,14 @@ const InfoText = () => {
                                         <label className="label">
                                             <span className="label-text">Name:</span>
                                         </label>
-                                        <input type="text" name="email" placeholder="Name" className="input input-bordered" required />
+                                        <input type="text" name="passName" placeholder="Name" className="input input-bordered" required />
                                     </div>
                                     <div className="grid grid-cols-1">
                                         <label className="label">
                                             <span className="label-text">Date of Birth:</span>
                                         </label>
                                         <div className="input input-bordered flex items-center gap-2">
-                                            <SlCalender className="font-semibold" /> <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+                                            <SlCalender className="font-semibold text-xl" /> <DatePicker selected={passDob} onChange={(date) => setPassDob(date)} />
                                         </div>
                                     </div>
                                 </div>
@@ -158,14 +165,14 @@ const InfoText = () => {
                                         <label htmlFor="" className="label">
                                             <span className="label-text">Issuing Place:</span>
                                         </label>
-                                        <input type="text" name="email" placeholder="Issuing Place" className="input input-bordered" required />
+                                        <input type="text" name="passPlace" placeholder="Issuing Place" className="input input-bordered" required />
                                     </div>
                                     <div className="grid grid-cols-1">
                                         <label htmlFor="" className="label">
                                             <span className="label-text">Issuing date:</span>
                                         </label>
                                         <div className="input input-bordered flex items-center gap-2">
-                                            <SlCalender className="font-semibold" /> <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+                                            <SlCalender className="font-semibold text-xl" /> <DatePicker selected={issuDate} onChange={(date) => setIssuDate(date)} />
                                         </div>
                                     </div>
                                     <div className="grid grid-cols-1">
@@ -173,7 +180,7 @@ const InfoText = () => {
                                             <span className="label-text">Expiry date:</span>
                                         </label>
                                         <div className="input input-bordered flex items-center gap-2">
-                                            <SlCalender className="font-semibold" /> <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+                                            <SlCalender className="font-semibold text-xl" /> <DatePicker selected={expDate} onChange={(date) => setExpDate(date)} />
                                         </div>
                                     </div>
                                 </div>
