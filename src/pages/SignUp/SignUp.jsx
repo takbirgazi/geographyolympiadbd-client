@@ -86,7 +86,7 @@ const SignUp = () => {
                         <div className="text-center lg:text-left lg:w-1/2 w-full">
                             <img src={sidebar} alt="" />
                         </div>
-                        <div className="card lg:w-1/2 w-full  shadow-2xl bg-base-100 ">
+                        <div className="card lg:w-1/2 w-full  shadow-2xl bg-white ">
                             <h2 className="font-bold text-xl text-center mt-10 ">Sign Up Now</h2>
                             <form onSubmit={signUpHandler} className="card-body">
                                 <span className="text-red-500">{errorText}</span>
