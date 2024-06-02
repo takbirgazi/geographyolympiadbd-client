@@ -1,3 +1,5 @@
-.input,textarea{
-    background-color:white;
+textarea,
+.input,
+.select {
+    background-color: white;
 }
