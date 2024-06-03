@@ -8,12 +8,13 @@ import "./InfoText.css"
 
 const InfoText = () => {
     const [errorText, setErrorText] = useState('');
-    const [disable, setDisable] = useState(false);
+    const [disable, setDisable] = useState(true);
     const [regDOb, setRegDOb] = useState(new Date());
     const [passDob, setPassDob] = useState(new Date());
     const [issuDate, setIssuDate] = useState(new Date());
     const [expDate, setExpDate] = useState(new Date());
-    const [checked, setChecked] = useState(true);
+    const [checked, setChecked] = useState(false);
+    const [geography, setGeography] = useState(true);
 
     const regInfoHndler = event => {
         event.preventDefault();
@@ -24,9 +25,10 @@ const InfoText = () => {
         const stdEmail = from.stdEmail.value;
         const stdPresentAddr = from.presentAddr.value;
         const stdPermanentAddr = from.permanentAddr.value;
+        const expectedLevel = from.expectedLevel.value;
         const stdSclClzName = from.sclClzName.value;
         const stdSclClzAddr = from.sclClzAddr.value;
-        const isGeography = checked;
+        const isGeography = geography;
 
         const techNAme = from?.techNAme?.value || false;
         const techDeg = from?.techDeg?.value || false;
@@ -41,29 +43,16 @@ const InfoText = () => {
         const passIssueDate = issuDate.getDate() + "/" + (issuDate.getMonth() + 1) + "/" + issuDate.getFullYear();
         const pssExprDate = expDate.getDate() + "/" + (expDate.getMonth() + 1) + "/" + expDate.getFullYear();
 
-        const regInfo = {
-            stdName,
-            stdDOB,
-            stdPhone,
-            stdEmail,
-            stdPresentAddr,
-            stdPermanentAddr,
-            stdSclClzName,
-            stdSclClzAddr,
-            isGeography,
-            techNAme,
-            techDeg,
-            tecSclClzName,
-            techPhone,
-            techLand,
-            techEmail,
-            passName,
-            passDOB,
-            passPlace,
-            passIssueDate,
-            pssExprDate,
+        const regInfo = { stdName, stdDOB, stdPhone, stdEmail, stdPresentAddr, stdPermanentAddr, expectedLevel, stdSclClzName, stdSclClzAddr, isGeography, techNAme, techDeg, tecSclClzName, techPhone, techLand, techEmail, passName, passDOB, passPlace, passIssueDate, pssExprDate, }
+
+        if (parseInt(issuDate.getFullYear()) < parseInt(expDate.getFullYear())) {
+            setErrorText("");
+
+            console.log(regInfo);
+
+        } else {
+            setErrorText("Please check your passport information!");
         }
-        console.log(regInfo);
     }
 
     return (
@@ -119,7 +108,7 @@ const InfoText = () => {
                             <label className="label">
                                 <span className="label-text">Expected Level of Registration: </span>
                             </label>
-                            <select className="select select-bordered bg-white">
+                            <select name="expectedLevel" className="select select-bordered bg-white">
                                 <option value="HSC">Higher Secondary Level (Grade/Class XI-XII)</option>
                                 <option value="SSC">Secondary Level (Grade/Class IX-X)</option>
                                 <option value="JSC">Junior Level (Class VI-VIII) </option>
@@ -142,12 +131,12 @@ const InfoText = () => {
                                 <span className="label-text">Whether Geography is offered in this School/College? </span>
                             </label>
                             <div className="flex gap-5 items-center ml-10 mt-2">
-                                <div onClick={() => setChecked(true)} className={`cursor-pointer border rounded-md px-5 py-2 ${checked && "bg-blue-500 text-white"}`}>Yes</div>
-                                <div onClick={() => setChecked(false)} className={`cursor-pointer border rounded-md px-5 py-2 ${checked || "bg-blue-500 text-white"}`}>No</div>
+                                <div onClick={() => setGeography(true)} className={`cursor-pointer border rounded-md px-5 py-2 ${geography && "bg-blue-500 text-white"}`}>Yes</div>
+                                <div onClick={() => setGeography(false)} className={`cursor-pointer border rounded-md px-5 py-2 ${geography || "bg-blue-500 text-white"}`}>No</div>
                             </div>
                         </div>
                         {
-                            checked && <div className="form-control col-span-2">
+                            geography && <div className="form-control col-span-2">
                                 <label className="label">
                                     <span className="label-text font-bold">Head Teacher/Principal of Provided School/College with the following information:</span>
                                 </label>
@@ -237,7 +226,15 @@ const InfoText = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="form-control mt-6 md:col-span-1 col-span-2">
+                        <div className="form-control md:col-span-1 col-span-2">
+                            <div className="my-3 flex gap-2">
+                                <input
+                                    checked={checked}
+                                    onChange={() => { setChecked(!checked), setDisable(!disable) }}
+                                    type="checkbox"
+                                />
+                                <p className={`text-red-500 ${checked && "text-green-500"}`}>All Information are valid</p>
+                            </div>
                             <input type="submit" name="submit" disabled={disable} className="btn btn-primary" value="Submit" />
                         </div>
                     </div>
