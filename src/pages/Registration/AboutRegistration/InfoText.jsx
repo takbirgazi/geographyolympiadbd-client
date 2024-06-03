@@ -8,12 +8,63 @@ import "./InfoText.css"
 
 const InfoText = () => {
     const [errorText, setErrorText] = useState('');
-    const [disable, setDisable] = useState(true);
+    const [disable, setDisable] = useState(false);
     const [regDOb, setRegDOb] = useState(new Date());
     const [passDob, setPassDob] = useState(new Date());
     const [issuDate, setIssuDate] = useState(new Date());
     const [expDate, setExpDate] = useState(new Date());
     const [checked, setChecked] = useState(true);
+
+    const regInfoHndler = event => {
+        event.preventDefault();
+        const from = event.target;
+        const stdName = from.name.value;
+        const stdDOB = regDOb.getDate() + "/" + (regDOb.getMonth() + 1) + "/" + regDOb.getFullYear();
+        const stdPhone = from.stdPhone.value;
+        const stdEmail = from.stdEmail.value;
+        const stdPresentAddr = from.presentAddr.value;
+        const stdPermanentAddr = from.permanentAddr.value;
+        const stdSclClzName = from.sclClzName.value;
+        const stdSclClzAddr = from.sclClzAddr.value;
+        const isGeography = checked;
+
+        const techNAme = from?.techNAme?.value || false;
+        const techDeg = from?.techDeg?.value || false;
+        const tecSclClzName = from?.tecSclClz?.value || false;
+        const techPhone = from?.techPhone?.value || false;
+        const techLand = from?.techLand?.value || false;
+        const techEmail = from?.techEmail?.value || false;
+
+        const passName = from.passName.value;
+        const passDOB = passDob.getDate() + "/" + (passDob.getMonth() + 1) + "/" + passDob.getFullYear();
+        const passPlace = from.passPlace.value;
+        const passIssueDate = issuDate.getDate() + "/" + (issuDate.getMonth() + 1) + "/" + issuDate.getFullYear();
+        const pssExprDate = expDate.getDate() + "/" + (expDate.getMonth() + 1) + "/" + expDate.getFullYear();
+
+        const regInfo = {
+            stdName,
+            stdDOB,
+            stdPhone,
+            stdEmail,
+            stdPresentAddr,
+            stdPermanentAddr,
+            stdSclClzName,
+            stdSclClzAddr,
+            isGeography,
+            techNAme,
+            techDeg,
+            tecSclClzName,
+            techPhone,
+            techLand,
+            techEmail,
+            passName,
+            passDOB,
+            passPlace,
+            passIssueDate,
+            pssExprDate,
+        }
+        console.log(regInfo);
+    }
 
     return (
         <div className="lg:w-2/3 w-full">
@@ -23,7 +74,7 @@ const InfoText = () => {
                 </Fade>
             </div>
             <div className="border rounded-md">
-                <form className="card-body">
+                <form onSubmit={regInfoHndler} className="card-body">
                     <span className="text-red-500">{errorText}</span>
                     <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
                         <div className="form-control md:col-span-1 col-span-2">
@@ -62,13 +113,13 @@ const InfoText = () => {
                             <label className="label">
                                 <span className="label-text">Permanent Address: </span>
                             </label>
-                            <textarea name="permanentAdr" placeholder="Write Your Permanent Address" className="input input-bordered h-16 pt-4" required></textarea>
+                            <textarea name="permanentAddr" placeholder="Write Your Permanent Address" className="input input-bordered h-16 pt-4" required></textarea>
                         </div>
                         <div className="form-control col-span-2">
                             <label className="label">
                                 <span className="label-text">Expected Level of Registration: </span>
                             </label>
-                            <select className="select select-bordered text-[#9ca3af] bg-white">
+                            <select className="select select-bordered bg-white">
                                 <option value="HSC">Higher Secondary Level (Grade/Class XI-XII)</option>
                                 <option value="SSC">Secondary Level (Grade/Class IX-X)</option>
                                 <option value="JSC">Junior Level (Class VI-VIII) </option>
