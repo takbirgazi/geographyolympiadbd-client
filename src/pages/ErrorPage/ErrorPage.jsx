@@ -8,7 +8,7 @@ const ErrorPage = () => {
                 <title>Error - Geography Olympiad BD</title>
            </Helmet>
             <h2 className="text-2xl font-bold my-3">404 | Page Not Found</h2>
-            <NavLink className="px-2 py-1 border rounded bg-blue-500 text-white">Go to Home</NavLink>
+            <NavLink to="/" className="px-2 py-1 border rounded bg-blue-500 text-white">Go to Home</NavLink>
         </div>
     );
 };

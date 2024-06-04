@@ -3,7 +3,7 @@ import { Fade } from "react-awesome-reveal";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { SlCalender } from "react-icons/sl";
-import "./InfoText.css"
+import "./InfoText.css";
 
 
 const InfoText = () => {
