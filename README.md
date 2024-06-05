@@ -16,6 +16,9 @@
 * react-icons
 * react-loader-spinner
 * react-datepicker
+* react-hook-form
+* install axios
+* @tanstack/react-query
 
 
 *Use Of Component Library*
