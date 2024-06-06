@@ -6,9 +6,11 @@ import { SlCalender } from "react-icons/sl";
 import "./InfoText.css";
 import useAxiosSecure from './../../../hooks/useAxiosSecure';
 import { toast } from 'react-hot-toast';
+import useAuth from "../../../hooks/useAuth";
 
 
 const InfoText = () => {
+    const { user } = useAuth();
     const [errorText, setErrorText] = useState('');
     const [disable, setDisable] = useState(true);
     const [regDOb, setRegDOb] = useState(new Date());
@@ -45,17 +47,18 @@ const InfoText = () => {
         const passPlace = from.passPlace.value;
         const passIssueDate = (issuDate.getMonth() + 1) + "/" + issuDate.getDate() + "/" + issuDate.getFullYear();
         const pssExprDate = (expDate.getMonth() + 1) + "/" + expDate.getDate() + "/" + expDate.getFullYear();
+        const isRegister = true;
 
-        const regInfo = { stdName, stdDOB, stdPhone, stdEmail, stdPresentAddr, stdPermanentAddr, expectedLevel, stdSclClzName, stdSclClzAddr, isGeography, techNAme, techDeg, tecSclClzName, techPhone, techLand, techEmail, passName, passDOB, passPlace, passIssueDate, pssExprDate, }
+        const regInfo = { stdName, stdDOB, stdPhone, stdEmail, stdPresentAddr, stdPermanentAddr, expectedLevel, stdSclClzName, stdSclClzAddr, isGeography, techNAme, techDeg, tecSclClzName, techPhone, techLand, techEmail, passName, passDOB, passPlace, passIssueDate, pssExprDate, isRegister }
 
         if (parseInt(issuDate.getFullYear()) < parseInt(expDate.getFullYear())) {
             setErrorText("");
+            setDisable(true);
             axiosSecure.post("/registration", regInfo)
-                .then(res => {
+                .then(() => {
                     toast.success("Registration Successful!");
-                    setDisable(!disable);
                     from.reset();
-                    console.log(res);
+                    setDisable(false);
                 })
 
         } else {
@@ -72,7 +75,6 @@ const InfoText = () => {
             </div>
             <div className="border rounded-md">
                 <form onSubmit={regInfoHndler} className="card-body">
-                    <span className="text-red-500">{errorText}</span>
                     <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
                         <div className="form-control md:col-span-1 col-span-2">
                             <label className="label">
@@ -98,7 +100,7 @@ const InfoText = () => {
                             <label className="label">
                                 <span className="label-text">Email Address: </span>
                             </label>
-                            <input type="email" name="stdEmail" placeholder="Write Your Email Address" className="input input-bordered" required />
+                            <input type="email" name="stdEmail" value={user.email} className="input input-bordered" readOnly />
                         </div>
                         <div className="form-control md:col-span-1 col-span-2">
                             <label className="label">
@@ -233,6 +235,7 @@ const InfoText = () => {
                                     </div>
                                 </div>
                             </div>
+                            <span className="text-red-500 text-sm p-2">{errorText}</span>
                         </div>
                         <div className="form-control md:col-span-1 col-span-2">
                             <div className="my-3 flex gap-2">
