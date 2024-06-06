@@ -6,6 +6,7 @@ import { FaCheck, FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import sidebar from "../../assets/signupImage.png"
 import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const LogIn = () => {
     const captchaRef = useRef(null);
@@ -13,7 +14,8 @@ const LogIn = () => {
     const [showPass, setShowPass] = useState(false);
     const [errorText, setErrorText] = useState('')
     const navigate = useNavigate();
-    const { googleSign, logInUser } = useAuth()
+    const { googleSign, logInUser } = useAuth();
+    const axiosPublic = useAxiosSecure();
 
     const location = useLocation();
     const from = location.state?.from.pathname || "/";
@@ -33,9 +35,13 @@ const LogIn = () => {
     }
     const googleHndler = () => {
         googleSign()
-            .then(() => {
-                toast.success("Log in Successful!");
-                navigate(from, { replace: true });
+            .then(res => {
+                const addUser = { name: res.user.displayName, email: res.user.email, profile: res.user?.photoURL, password: "" };
+                axiosPublic.post("/users", addUser)
+                    .then(() => {
+                        toast.success("Sign Up Successful!");
+                        navigate(from, { replace: true });
+                    })
             })
             .catch(() => {
                 toast.error("Log in Failed");

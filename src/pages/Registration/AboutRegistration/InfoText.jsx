@@ -4,6 +4,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { SlCalender } from "react-icons/sl";
 import "./InfoText.css";
+import useAxiosSecure from './../../../hooks/useAxiosSecure';
+import { toast } from 'react-hot-toast';
 
 
 const InfoText = () => {
@@ -15,6 +17,7 @@ const InfoText = () => {
     const [expDate, setExpDate] = useState(new Date());
     const [checked, setChecked] = useState(false);
     const [geography, setGeography] = useState(true);
+    const axiosSecure = useAxiosSecure()
 
     const regInfoHndler = event => {
         event.preventDefault();
@@ -38,17 +41,22 @@ const InfoText = () => {
         const techEmail = from?.techEmail?.value || false;
 
         const passName = from.passName.value;
-        const passDOB = passDob.getDate() + "/" + (passDob.getMonth() + 1) + "/" + passDob.getFullYear();
+        const passDOB = (passDob.getMonth() + 1) + "/" + passDob.getDate() + "/" + passDob.getFullYear();
         const passPlace = from.passPlace.value;
-        const passIssueDate = issuDate.getDate() + "/" + (issuDate.getMonth() + 1) + "/" + issuDate.getFullYear();
-        const pssExprDate = expDate.getDate() + "/" + (expDate.getMonth() + 1) + "/" + expDate.getFullYear();
+        const passIssueDate = (issuDate.getMonth() + 1) + "/" + issuDate.getDate() + "/" + issuDate.getFullYear();
+        const pssExprDate = (expDate.getMonth() + 1) + "/" + expDate.getDate() + "/" + expDate.getFullYear();
 
         const regInfo = { stdName, stdDOB, stdPhone, stdEmail, stdPresentAddr, stdPermanentAddr, expectedLevel, stdSclClzName, stdSclClzAddr, isGeography, techNAme, techDeg, tecSclClzName, techPhone, techLand, techEmail, passName, passDOB, passPlace, passIssueDate, pssExprDate, }
 
         if (parseInt(issuDate.getFullYear()) < parseInt(expDate.getFullYear())) {
             setErrorText("");
-
-            console.log(regInfo);
+            axiosSecure.post("/registration", regInfo)
+                .then(res => {
+                    toast.success("Registration Successful!");
+                    setDisable(!disable);
+                    from.reset();
+                    console.log(res);
+                })
 
         } else {
             setErrorText("Please check your passport information!");

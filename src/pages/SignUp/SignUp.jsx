@@ -30,7 +30,7 @@ const SignUp = () => {
                     .then(() => {
                         updateUser(data.name);
                         const addUser = { name: data.name, email: data.email, profile: res?.data?.data?.display_url, password: data.password };
-                        axiosPublic.post("users", addUser)
+                        axiosPublic.post("/users", addUser)
                             .then(() => {
                                 toast.success("Sign Up Successful!");
                                 setTimeout(() => {
@@ -75,9 +75,13 @@ const SignUp = () => {
     }
     const googleHndler = () => {
         googleSign()
-            .then(() => {
-                toast.success("Log in Successful!");
-                navigate(from, { replace: true });
+            .then(res => {
+                const addUser = { name: res.user.displayName, email: res.user.email, profile: res.user?.photoURL, password: "" };
+                axiosPublic.post("/users", addUser)
+                    .then(() => {
+                        toast.success("Sign Up Successful!");
+                        navigate(from, { replace: true });
+                    })
             })
             .catch(() => {
                 toast.error("Log in Failed");
