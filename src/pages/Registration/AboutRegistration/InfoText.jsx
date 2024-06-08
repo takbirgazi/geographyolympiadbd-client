@@ -19,7 +19,7 @@ const InfoText = () => {
     const [expDate, setExpDate] = useState(new Date());
     const [checked, setChecked] = useState(false);
     const [geography, setGeography] = useState(true);
-    const axiosSecure = useAxiosSecure()
+    const axiosSecure = useAxiosSecure();
 
     const regInfoHndler = event => {
         event.preventDefault();
@@ -47,9 +47,8 @@ const InfoText = () => {
         const passPlace = from.passPlace.value;
         const passIssueDate = (issuDate.getMonth() + 1) + "/" + issuDate.getDate() + "/" + issuDate.getFullYear();
         const pssExprDate = (expDate.getMonth() + 1) + "/" + expDate.getDate() + "/" + expDate.getFullYear();
-        const isRegister = true;
 
-        const regInfo = { stdName, stdDOB, stdPhone, stdEmail, stdPresentAddr, stdPermanentAddr, expectedLevel, stdSclClzName, stdSclClzAddr, isGeography, techNAme, techDeg, tecSclClzName, techPhone, techLand, techEmail, passName, passDOB, passPlace, passIssueDate, pssExprDate, isRegister }
+        const regInfo = { stdName, stdDOB, stdPhone, stdEmail, stdPresentAddr, stdPermanentAddr, expectedLevel, stdSclClzName, stdSclClzAddr, isGeography, techNAme, techDeg, tecSclClzName, techPhone, techLand, techEmail, passName, passDOB, passPlace, passIssueDate, pssExprDate }
 
         if (parseInt(issuDate.getFullYear()) < parseInt(expDate.getFullYear())) {
             setErrorText("");
@@ -59,6 +58,10 @@ const InfoText = () => {
                     toast.success("Registration Successful!");
                     from.reset();
                     setDisable(false);
+                })
+            axiosSecure.patch(`/users/${user.email}`)
+                .then(() => {
+                    window.location.reload();
                 })
 
         } else {

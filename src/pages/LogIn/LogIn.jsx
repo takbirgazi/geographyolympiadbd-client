@@ -16,6 +16,7 @@ const LogIn = () => {
     const navigate = useNavigate();
     const { googleSign, logInUser } = useAuth();
     const axiosPublic = useAxiosSecure();
+    const isRegister = "User";
 
     const location = useLocation();
     const from = location.state?.from.pathname || "/";
@@ -36,7 +37,7 @@ const LogIn = () => {
     const googleHndler = () => {
         googleSign()
             .then(res => {
-                const addUser = { name: res.user.displayName, email: res.user.email, profile: res.user?.photoURL, password: "" };
+                const addUser = { name: res.user.displayName, email: res.user.email, profile: res.user?.photoURL, password: "", isRegister };
                 axiosPublic.post("/users", addUser)
                     .then(() => {
                         toast.success("Sign Up Successful!");

@@ -14,6 +14,7 @@ const imageBBUrl = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IM
 const SignUp = () => {
     const { register, handleSubmit } = useForm();
     const axiosPublic = useAxiosPublic();
+    const isRegister = "User";
 
     const onSubmit = async (data) => {
         setDisable(true);
@@ -29,7 +30,7 @@ const SignUp = () => {
                 createUser(data.email, data.password)
                     .then(() => {
                         updateUser(data.name);
-                        const addUser = { name: data.name, email: data.email, profile: res?.data?.data?.display_url, password: data.password };
+                        const addUser = { name: data.name, email: data.email, profile: res?.data?.data?.display_url, password: data.password, isRegister };
                         axiosPublic.post("/users", addUser)
                             .then(() => {
                                 toast.success("Sign Up Successful!");
@@ -76,7 +77,7 @@ const SignUp = () => {
     const googleHndler = () => {
         googleSign()
             .then(res => {
-                const addUser = { name: res.user.displayName, email: res.user.email, profile: res.user?.photoURL, password: "" };
+                const addUser = { name: res.user.displayName, email: res.user.email, profile: res.user?.photoURL, password: "", isRegister };
                 axiosPublic.post("/users", addUser)
                     .then(() => {
                         toast.success("Sign Up Successful!");
