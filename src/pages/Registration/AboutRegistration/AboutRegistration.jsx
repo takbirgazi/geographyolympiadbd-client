@@ -7,7 +7,7 @@ import useAuth from "../../../hooks/useAuth";
 const AboutRegistration = () => {
     const { user } = useAuth();
     console.log(user)
-    const isRegister = true;
+    const isRegister = false;
 
     return (
         <div className="border-b-4 border-[#83c9eb] pb-5">
