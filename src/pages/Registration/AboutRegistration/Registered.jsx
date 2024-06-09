@@ -10,6 +10,10 @@ const Registered = () => {
     axiosPublic.get(`/registration/${user.email}`)
         .then(res => setRegInfo(res.data));
 
+    const regDataHndler = () => {
+        axiosPublic.post(`/order`, regInfo)
+            .then(res => window.location.replace(res.data.url))
+    }
     return (
         <div className="shadow-md border rounded">
             <div className="grid md:grid-cols-2 grid-cols-1 p-4 gap-2">
@@ -25,7 +29,7 @@ const Registered = () => {
                 <p className="flex flex-col py-1 border-b-2"><span className="font-bold">Passport Expiry date: </span> <span className="mb-2">{regInfo.pssExprDate}</span></p>
             </div>
             <div className="flex justify-center items-center py-5">
-                <button className="btn btn-outline btn-accent font-bold">Pay Online</button>
+                <div onClick={regDataHndler} className="btn btn-outline btn-accent font-bold">Pay Online</div>
             </div>
         </div>
     );
