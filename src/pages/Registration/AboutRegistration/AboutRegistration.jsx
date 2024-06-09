@@ -40,7 +40,16 @@ const AboutRegistration = () => {
             {
                 (isRegister === "Paid") && <>
                     <div>
-                        Paid The User
+                        <div className="flex items-center justify-center py-5">
+                            <h2 className="font-bold text-2xl">Payment Confirm</h2>
+                        </div>
+                        <div className="w-11/12 mx-auto py-5">
+                            <div className="flex items-center justify-center py-40">
+                                <div className="border px-4 py-2 font-bold rounded-sm">
+                                    <h2>Successfully Paid Your Payment</h2>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </>
 
